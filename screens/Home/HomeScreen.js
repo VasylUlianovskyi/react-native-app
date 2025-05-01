@@ -48,6 +48,7 @@ const styles = StyleSheet.create({
     padding: 20
   },
   headerImage: {
+    width: '100%',
     resizeMode: 'contain',
     tintColor: COLORS.textLight,
     marginBottom: 20
