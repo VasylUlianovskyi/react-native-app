@@ -14,29 +14,11 @@ export default function UploadPhotoScreen ({ navigation }) {
   const [photo, setPhoto] = useState(null)
   const [modalVisible, setModalVisible] = useState(false)
 
-  const pickFromGallery = async () => {
+  const openCustomGallery = () => {
     setModalVisible(false)
-    const result = await ImagePicker.launchImageLibraryAsync({
-      mediaTypes: ImagePicker.MediaTypeOptions.Images,
-      allowsEditing: true,
-      aspect: [1, 1],
-      quality: 1
+    navigation.navigate('FakeGallery', {
+      onSelect: img => setPhoto(img)
     })
-    if (!result.canceled) {
-      setPhoto(result.assets[0].uri)
-    }
-  }
-
-  const takePhoto = async () => {
-    setModalVisible(false)
-    const result = await ImagePicker.launchCameraAsync({
-      allowsEditing: true,
-      aspect: [1, 1],
-      quality: 1
-    })
-    if (!result.canceled) {
-      setPhoto(result.assets[0].uri)
-    }
   }
 
   return (
@@ -62,7 +44,7 @@ export default function UploadPhotoScreen ({ navigation }) {
 
       <Modal transparent visible={modalVisible} animationType='slide'>
         <View style={styles.modal}>
-          <TouchableOpacity style={styles.option} onPress={pickFromGallery}>
+          <TouchableOpacity style={styles.option} onPress={openCustomGallery}>
             <Image
               source={require('../../assets/images/gallery.png')}
               style={styles.optionIcon}
@@ -70,7 +52,7 @@ export default function UploadPhotoScreen ({ navigation }) {
             <Text style={styles.optionText}>Photo Gallery</Text>
           </TouchableOpacity>
 
-          <TouchableOpacity style={styles.option} onPress={takePhoto}>
+          <TouchableOpacity style={styles.option}>
             <Image
               source={require('../../assets/images/camera.png')}
               style={styles.optionIcon}

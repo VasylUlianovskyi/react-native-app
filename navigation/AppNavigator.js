@@ -6,6 +6,7 @@ import HomeScreen from '../screens/Home/HomeScreen'
 import LoginScreen from '../screens/Auth/LoginScreen'
 import GenderSelectionScreen from '../screens/Profile/GenderSelectionScreen'
 import UploadPhotoScreen from '../screens/Upload/UploadPhotoScreen'
+import Gallery from '../components/Galery'
 
 const Stack = createStackNavigator()
 
@@ -23,6 +24,7 @@ export default function AppNavigator () {
           component={GenderSelectionScreen}
         />
         <Stack.Screen name='UploadPhoto' component={UploadPhotoScreen} />
+        <Stack.Screen name='FakeGallery' component={Gallery} />
       </Stack.Navigator>
     </NavigationContainer>
   )
