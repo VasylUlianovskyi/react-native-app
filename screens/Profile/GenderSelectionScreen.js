@@ -6,8 +6,8 @@ import { useNavigation } from '@react-navigation/native'
 export default function GenderSelectionScreen () {
   const navigation = useNavigation()
 
-  const handleCreateProfile = gender => {
-    navigation.navigate('CreateProfile', { gender })
+  const handleCreateProfile = () => {
+    navigation.navigate('UploadPhoto')
   }
 
   return (
@@ -35,7 +35,7 @@ export default function GenderSelectionScreen () {
           </View>
           <TouchableOpacity
             style={styles.button}
-            onPress={() => handleCreateProfile('male')}
+            onPress={() => handleCreateProfile()}
           >
             <Text style={styles.buttonText}>Create Profile</Text>
           </TouchableOpacity>
@@ -59,7 +59,7 @@ export default function GenderSelectionScreen () {
           </View>
           <TouchableOpacity
             style={styles.button}
-            onPress={() => handleCreateProfile('female')}
+            onPress={() => handleCreateProfile()}
           >
             <Text style={styles.buttonText}>Create Profile</Text>
           </TouchableOpacity>
