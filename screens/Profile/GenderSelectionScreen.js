@@ -18,10 +18,13 @@ export default function GenderSelectionScreen () {
         activeDotStyle={styles.activeDot}
       >
         <View style={styles.slide}>
-          <Image
-            source={require('../../assets/images/male.jpg')}
-            style={styles.image}
-          />
+          <View style={styles.imageWrapper}>
+            <Image
+              source={require('../../assets/images/male.jpg')}
+              style={styles.image}
+            />
+            <View style={styles.darkOverlay} />
+          </View>
           <View style={styles.overlay}>
             <Text style={styles.name}>Frank Whittaker</Text>
             <Text style={styles.role}>Junior Doctor</Text>
@@ -39,10 +42,13 @@ export default function GenderSelectionScreen () {
         </View>
 
         <View style={styles.slide}>
-          <Image
-            source={require('../../assets/images/female.jpg')}
-            style={styles.image}
-          />
+          <View style={styles.imageWrapper}>
+            <Image
+              source={require('../../assets/images/female.jpg')}
+              style={styles.image}
+            />
+            <View style={styles.darkOverlay} />
+          </View>
           <View style={styles.overlay}>
             <Text style={styles.name}>Melissa Dion</Text>
             <Text style={styles.role}>Junior Doctor</Text>
@@ -71,15 +77,13 @@ const styles = StyleSheet.create({
   slide: {
     flex: 1,
     alignItems: 'center',
-    justifyContent: 'space-between',
-    paddingVertical: 40
+    justifyContent: 'space-between'
   },
   image: {
-    width: '93%',
-    height: '92%',
+    width: '100%',
+    height: '100%',
     borderRadius: 30,
-    resizeMode: 'cover',
-    paddingTop: 9
+    resizeMode: 'cover'
   },
   overlay: {
     position: 'absolute',
@@ -106,10 +110,12 @@ const styles = StyleSheet.create({
   },
   button: {
     backgroundColor: '#FE653B',
+    width: '93%',
     borderRadius: 30,
     paddingVertical: 14,
     paddingHorizontal: 32,
-    marginTop: 20
+    position: 'relative',
+    bottom: 40
   },
   buttonText: {
     color: '#fff',
@@ -135,5 +141,17 @@ const styles = StyleSheet.create({
     position: 'relative',
     top: -90,
     right: 145
+  },
+  imageWrapper: {
+    width: '93%',
+    height: '87%',
+    borderRadius: 30,
+    overflow: 'hidden',
+    position: 'relative',
+    top: 10
+  },
+  darkOverlay: {
+    ...StyleSheet.absoluteFillObject,
+    backgroundColor: 'rgba(0, 0, 0, 0.3)'
   }
 })
