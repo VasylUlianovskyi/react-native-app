@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React from 'react'
 import {
   View,
   Text,
@@ -11,33 +11,38 @@ import {
 } from 'react-native'
 
 const IMAGES = [
-  require('../assets/images/gallery/1.jpg'),
-  require('../assets/images/gallery/2.jpg'),
-  require('../assets/images/gallery/3.jpg'),
-  require('../assets/images/gallery/4.jpg'),
-  require('../assets/images/gallery/5.jpg'),
-  require('../assets/images/gallery/6.jpg'),
-  require('../assets/images/gallery/7.jpg'),
-  require('../assets/images/gallery/8.jpg'),
-  require('../assets/images/gallery/9.jpg'),
-  require('../assets/images/gallery/10.jpg'),
-  require('../assets/images/gallery/11.jpg'),
-  require('../assets/images/gallery/12.jpg'),
-  require('../assets/images/gallery/13.jpg'),
-  require('../assets/images/gallery/14.jpg'),
-  require('../assets/images/gallery/15.jpg'),
-  require('../assets/images/gallery/16.jpg'),
-  require('../assets/images/gallery/17.jpg'),
-  require('../assets/images/gallery/18.jpg')
+  { id: 1, uri: require('../assets/images/gallery/1.jpg') },
+  { id: 2, uri: require('../assets/images/gallery/2.jpg') },
+  { id: 3, uri: require('../assets/images/gallery/3.jpg') },
+  { id: 4, uri: require('../assets/images/gallery/4.jpg') },
+  { id: 5, uri: require('../assets/images/gallery/5.jpg') },
+  { id: 6, uri: require('../assets/images/gallery/6.jpg') },
+  { id: 7, uri: require('../assets/images/gallery/7.jpg') },
+  { id: 8, uri: require('../assets/images/gallery/8.jpg') },
+  { id: 9, uri: require('../assets/images/gallery/9.jpg') },
+  { id: 10, uri: require('../assets/images/gallery/10.jpg') },
+  { id: 11, uri: require('../assets/images/gallery/11.jpg') },
+  { id: 12, uri: require('../assets/images/gallery/12.jpg') },
+  { id: 13, uri: require('../assets/images/gallery/13.jpg') },
+  { id: 14, uri: require('../assets/images/gallery/14.jpg') },
+  { id: 15, uri: require('../assets/images/gallery/15.jpg') },
+  { id: 16, uri: require('../assets/images/gallery/16.jpg') },
+  { id: 17, uri: require('../assets/images/gallery/17.jpg') },
+  { id: 18, uri: require('../assets/images/gallery/18.jpg') }
 ]
 
 const screenWidth = Dimensions.get('window').width
 const imageSize = screenWidth / 3 - 6
 
-export default function FakeGalleryScreen ({ navigation, route }) {
-  const handleSelect = img => {
-    route.params?.onSelect?.(img)
-    navigation.goBack()
+export default function Gallery ({ navigation, route }) {
+  const handleSelect = imageObj => {
+    navigation.navigate('CropScreen', {
+      image: imageObj.uri,
+      onConfirm: finalImage => {
+        route.params?.onSelect?.(finalImage)
+        navigation.goBack()
+      }
+    })
   }
 
   return (
@@ -46,14 +51,14 @@ export default function FakeGalleryScreen ({ navigation, route }) {
       <FlatList
         data={IMAGES}
         numColumns={3}
-        keyExtractor={(_, i) => i.toString()}
+        keyExtractor={item => item.id.toString()}
         contentContainerStyle={styles.grid}
         renderItem={({ item }) => (
           <TouchableOpacity
             onPress={() => handleSelect(item)}
             style={styles.imageWrapper}
           >
-            <Image source={item} style={styles.image} />
+            <Image source={item.uri} style={styles.image} />
           </TouchableOpacity>
         )}
       />

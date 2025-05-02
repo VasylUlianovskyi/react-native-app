@@ -8,7 +8,6 @@ import {
   TouchableOpacity,
   Modal
 } from 'react-native'
-import * as ImagePicker from 'expo-image-picker'
 
 export default function UploadPhotoScreen ({ navigation }) {
   const [photo, setPhoto] = useState(null)
@@ -16,7 +15,7 @@ export default function UploadPhotoScreen ({ navigation }) {
 
   const openCustomGallery = () => {
     setModalVisible(false)
-    navigation.navigate('FakeGallery', {
+    navigation.navigate('Gallery', {
       onSelect: img => setPhoto(img)
     })
   }
