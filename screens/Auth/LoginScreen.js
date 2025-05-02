@@ -8,7 +8,7 @@ import {
   TouchableOpacity
 } from 'react-native'
 
-export default function LoginScreen () {
+export default function LoginScreen ({ navigation }) {
   return (
     <SafeAreaView style={styles.container}>
       <Image
@@ -25,23 +25,26 @@ export default function LoginScreen () {
         <SocialButton
           icon={require('../../assets/images/appleLogo.png')}
           text='Continue with Apple'
+          onPress={() => navigation.navigate('GenderSelectionScreen')}
         />
         <SocialButton
           icon={require('../../assets/images/googleLogo.png')}
           text='Continue with Google'
+          onPress={() => navigation.navigate('GenderSelectionScreen')}
         />
         <SocialButton
           icon={require('../../assets/images/facebookLogo.png')}
           text='Continue with Facebook'
+          onPress={() => navigation.navigate('GenderSelectionScreen')}
         />
       </View>
     </SafeAreaView>
   )
 }
 
-function SocialButton ({ icon, text }) {
+function SocialButton ({ icon, text, onPress }) {
   return (
-    <TouchableOpacity style={styles.socialButton}>
+    <TouchableOpacity style={styles.socialButton} onPress={onPress}>
       <Image source={icon} style={styles.socialIcon} />
       <Text style={styles.socialText}>{text}</Text>
     </TouchableOpacity>
