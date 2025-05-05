@@ -21,7 +21,7 @@ export default function ResultScreen ({ route, navigation }) {
       <View style={styles.imageWrapper}>
         <Image source={selectedImage} style={styles.image} />
         <View style={styles.blurWrapper}>
-          <BlurView intensity={5} tint='light' style={styles.blur} />
+          <BlurView intensity={1} tint='light' style={styles.blur} />
           <LinearGradient
             colors={[
               'transparent',
