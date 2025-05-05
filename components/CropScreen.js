@@ -72,7 +72,7 @@ export default function CropScreen ({ route, navigation }) {
 
   const handleUsePhoto = () => {
     if (onConfirm) onConfirm(image)
-    navigation.goBack()
+    navigation.navigate('ResultScreen', { selectedImage: image })
   }
 
   return (

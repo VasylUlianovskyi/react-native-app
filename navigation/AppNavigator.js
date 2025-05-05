@@ -8,6 +8,7 @@ import GenderSelectionScreen from '../screens/Profile/GenderSelectionScreen'
 import UploadPhotoScreen from '../screens/Upload/UploadPhotoScreen'
 import Gallery from '../components/Galery'
 import CropScreen from '../components/CropScreen'
+import ResultScreen from '../screens/Profile/ResultsScreen'
 
 const Stack = createStackNavigator()
 
@@ -27,6 +28,7 @@ export default function AppNavigator () {
         <Stack.Screen name='UploadPhoto' component={UploadPhotoScreen} />
         <Stack.Screen name='Gallery' component={Gallery} />
         <Stack.Screen name='CropScreen' component={CropScreen} />
+        <Stack.Screen name='ResultScreen' component={ResultScreen} />
       </Stack.Navigator>
     </NavigationContainer>
   )
