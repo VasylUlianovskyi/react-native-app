@@ -13,6 +13,9 @@ import { LinearGradient } from 'expo-linear-gradient'
 export default function ResultScreen ({ route, navigation }) {
   const { selectedImage } = route.params
 
+  const handleExploreApp = () => {
+    navigation.navigate('HomeScreen', { selectedImage })
+  }
   return (
     <SafeAreaView style={styles.container}>
       <View style={styles.imageWrapper}>
@@ -52,7 +55,7 @@ export default function ResultScreen ({ route, navigation }) {
           <Text style={styles.note}>Required to achieve each stage</Text>
         </View>
 
-        <TouchableOpacity style={styles.button}>
+        <TouchableOpacity style={styles.button} onPress={handleExploreApp}>
           <Text style={styles.buttonText}>Explore App</Text>
         </TouchableOpacity>
       </View>

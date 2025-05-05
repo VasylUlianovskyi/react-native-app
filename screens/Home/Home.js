@@ -10,7 +10,7 @@ import {
 } from 'react-native'
 import { COLORS } from '../../constants/COLORS'
 
-export default function HomeScreen ({ navigation }) {
+export default function Home ({ navigation }) {
   return (
     <SafeAreaView style={styles.container}>
       <ScrollView contentContainerStyle={styles.scrollContainer}>
