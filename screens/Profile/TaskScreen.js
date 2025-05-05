@@ -47,7 +47,7 @@ const tasks = [
   }
 ]
 
-export default function TaskScreen () {
+export default function TaskScreen ({ navigation }) {
   return (
     <LinearGradient
       colors={['#4E3D39', '#3A2E2D', '#1F1A1A']}
@@ -70,6 +70,9 @@ export default function TaskScreen () {
           <Text style={styles.title}>High School</Text>
           <Text style={styles.subtitle}>PROGRESS</Text>
         </View>
+        <TouchableOpacity onPress={() => navigation.goBack()}>
+          <Text style={styles.closeIcon}>✕</Text>
+        </TouchableOpacity>
       </View>
 
       <View style={styles.dayInfo}>
@@ -117,6 +120,12 @@ const styles = StyleSheet.create({
   subtitle: {
     color: '#aaa',
     fontSize: 12
+  },
+  closeIcon: {
+    fontSize: 22,
+    color: 'rgba(255, 255, 255, 0.6)',
+    position: 'relative',
+    left: 190
   },
   dayInfo: {
     display: 'flex',

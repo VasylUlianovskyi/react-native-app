@@ -19,6 +19,9 @@ export default function HomeScreen({ navigation, route }) {
     navigation.navigate('TaskScreen')
   }
 
+  const handleEdit = () => {
+    navigation.navigate('EditProfile')
+  }
   return (
     <SafeAreaView style={styles.container}>
       <Image source={selectedImage} style={styles.bgImage} />
@@ -56,7 +59,7 @@ export default function HomeScreen({ navigation, route }) {
               style={styles.icon}
             />
           </TouchableOpacity>
-          <TouchableOpacity style={styles.iconButton}>
+          <TouchableOpacity style={styles.iconButton} onPress={handleEdit}>
             <Image
               source={require('../../assets/images/edit.png')}
               style={styles.icon}
