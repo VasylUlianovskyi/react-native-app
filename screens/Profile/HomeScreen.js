@@ -22,6 +22,10 @@ export default function HomeScreen({ navigation, route }) {
   const handleEdit = () => {
     navigation.navigate('EditProfile')
   }
+
+  const handleMyProfile = () => {
+    navigation.navigate('MyProfile', { selectedImage })
+  }
   return (
     <SafeAreaView style={styles.container}>
       <Image source={selectedImage} style={styles.bgImage} />
@@ -117,7 +121,7 @@ export default function HomeScreen({ navigation, route }) {
           ></Image>
         </TouchableOpacity>
 
-        <TouchableOpacity>
+        <TouchableOpacity onPress={handleMyProfile}>
           <Image
             source={require('../../assets/images/userProfile.png')}
             style={styles.navIcon}
