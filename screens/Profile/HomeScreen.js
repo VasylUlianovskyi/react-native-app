@@ -15,6 +15,10 @@ import CircularProgress from 'react-native-circular-progress-indicator'
 export default function HomeScreen({ navigation, route }) {
   const { selectedImage } = route.params
 
+  const handleTasks = () => {
+    navigation.navigate('TaskScreen')
+  }
+
   return (
     <SafeAreaView style={styles.container}>
       <Image source={selectedImage} style={styles.bgImage} />
@@ -83,7 +87,7 @@ export default function HomeScreen({ navigation, route }) {
             <Text style={styles.progressTitle}>High School</Text>
             <Text style={styles.progressLabel}>PROGRESS</Text>
           </View>
-          <TouchableOpacity>
+          <TouchableOpacity onPress={handleTasks}>
             <Text style={styles.buttonText}>></Text>
           </TouchableOpacity>
         </View>

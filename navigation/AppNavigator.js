@@ -10,6 +10,7 @@ import Gallery from '../components/Galery'
 import CropScreen from '../components/CropScreen'
 import ResultScreen from '../screens/Profile/ResultsScreen'
 import HomeScreen from '../screens/Profile/HomeScreen'
+import TaskScreen from '../screens/Profile/TaskScreen'
 
 const Stack = createStackNavigator()
 
@@ -31,6 +32,7 @@ export default function AppNavigator () {
         <Stack.Screen name='CropScreen' component={CropScreen} />
         <Stack.Screen name='ResultScreen' component={ResultScreen} />
         <Stack.Screen name='HomeScreen' component={HomeScreen} />
+        <Stack.Screen name='TaskScreen' component={TaskScreen} />
       </Stack.Navigator>
     </NavigationContainer>
   )
