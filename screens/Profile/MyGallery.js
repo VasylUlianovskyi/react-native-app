@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React from 'react'
 import {
   View,
   Text,
@@ -6,8 +6,7 @@ import {
   Image,
   TouchableOpacity,
   FlatList,
-  SafeAreaView,
-  Modal
+  SafeAreaView
 } from 'react-native'
 import { Ionicons } from '@expo/vector-icons'
 
@@ -25,16 +24,19 @@ const DATA = [
 ]
 
 export default function MyGallery ({ navigation }) {
-  const [modalVisible, setModalVisible] = useState(false)
-
-  const renderItem = ({ item }) => <Image source={item} style={styles.image} />
-
-  const openCustomGallery = () => {
-    setModalVisible(false)
-    navigation.navigate('Gallery', {
-      onSelect: img => setPhoto(img)
-    })
-  }
+  const renderItem = ({ item }) => (
+    <TouchableOpacity
+      onPress={() =>
+        navigation.navigate('PhotoViewer', {
+          image: item,
+          date: '26 Feb 2025 at 2:47 PM'
+        })
+      }
+      style={styles.imageWrapper}
+    >
+      <Image source={item} style={styles.image} />
+    </TouchableOpacity>
+  )
 
   return (
     <SafeAreaView style={styles.safe}>
@@ -50,11 +52,11 @@ export default function MyGallery ({ navigation }) {
         keyExtractor={(item, index) => index.toString()}
         renderItem={renderItem}
         numColumns={2}
-        columnWrapperStyle={{ justifyContent: 'space-between' }}
+        columnWrapperStyle={styles.column}
         contentContainerStyle={styles.grid}
       />
 
-      <TouchableOpacity style={styles.addButton} onPress={openCustomGallery}>
+      <TouchableOpacity style={styles.addButton} onPress={() => {}}>
         <Ionicons name='add' size={28} color='#fff' />
       </TouchableOpacity>
     </SafeAreaView>
@@ -81,11 +83,20 @@ const styles = StyleSheet.create({
     paddingHorizontal: 20,
     paddingBottom: 80
   },
-  image: {
+  column: {
+    justifyContent: 'space-around',
+    gap: 10,
+    paddingBottom: 10
+  },
+  imageWrapper: {
     width: '48%',
-    aspectRatio: 1,
-    borderRadius: 10,
-    marginBottom: 16
+    marginBottom: 1
+  },
+  image: {
+    width: 200,
+    height: 200,
+    borderRadius: 12,
+    resizeMode: 'cover'
   },
   addButton: {
     position: 'absolute',
