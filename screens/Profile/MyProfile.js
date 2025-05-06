@@ -30,6 +30,10 @@ export default function MyProfile ({ navigation, route }) {
     navigation.navigate('MyConnections')
   }
 
+  const handleMyGallery = () => {
+    navigation.navigate('MyGallery')
+  }
+
   return (
     <SafeAreaView style={styles.safe}>
       <ScrollView contentContainerStyle={styles.container}>
@@ -148,7 +152,7 @@ export default function MyProfile ({ navigation, route }) {
               />
             ))}
           </View>
-          <TouchableOpacity style={styles.viewAllBtn}>
+          <TouchableOpacity style={styles.viewAllBtn} onPress={handleMyGallery}>
             <Text style={styles.viewAllText}>View all</Text>
           </TouchableOpacity>
         </View>
