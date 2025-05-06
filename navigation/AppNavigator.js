@@ -13,6 +13,7 @@ import HomeScreen from '../screens/Profile/HomeScreen'
 import TaskScreen from '../screens/Profile/TaskScreen'
 import EditProfile from '../screens/Profile/EditProfile'
 import MyProfile from '../screens/Profile/MyProfile'
+import MyConnections from '../components/MyConnections'
 
 const Stack = createStackNavigator()
 
@@ -37,6 +38,7 @@ export default function AppNavigator () {
         <Stack.Screen name='TaskScreen' component={TaskScreen} />
         <Stack.Screen name='EditProfile' component={EditProfile} />
         <Stack.Screen name='MyProfile' component={MyProfile} />
+        <Stack.Screen name='MyConnections' component={MyConnections} />
       </Stack.Navigator>
     </NavigationContainer>
   )

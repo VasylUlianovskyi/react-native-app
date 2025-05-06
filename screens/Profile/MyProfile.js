@@ -25,6 +25,11 @@ const IMAGES = [
 
 export default function MyProfile ({ navigation, route }) {
   const { selectedImage } = route.params
+
+  const handleMyConnections = () => {
+    navigation.navigate('MyConnections')
+  }
+
   return (
     <SafeAreaView style={styles.safe}>
       <ScrollView contentContainerStyle={styles.container}>
@@ -123,7 +128,10 @@ export default function MyProfile ({ navigation, route }) {
             </TouchableOpacity>
           </View>
 
-          <TouchableOpacity style={styles.viewAllBtn}>
+          <TouchableOpacity
+            style={styles.viewAllBtn}
+            onPress={handleMyConnections}
+          >
             <Text style={styles.viewAllText}>View all</Text>
           </TouchableOpacity>
         </View>

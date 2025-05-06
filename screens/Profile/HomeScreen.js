@@ -12,7 +12,7 @@ import { BlurView } from 'expo-blur'
 import { LinearGradient } from 'expo-linear-gradient'
 import CircularProgress from 'react-native-circular-progress-indicator'
 
-export default function HomeScreen({ navigation, route }) {
+export default function HomeScreen ({ navigation, route }) {
   const { selectedImage } = route.params
 
   const handleTasks = () => {
@@ -95,7 +95,7 @@ export default function HomeScreen({ navigation, route }) {
             <Text style={styles.progressLabel}>PROGRESS</Text>
           </View>
           <TouchableOpacity onPress={handleTasks}>
-            <Text style={styles.buttonText}>></Text>
+            <Text style={styles.buttonText}>{'>'}</Text>
           </TouchableOpacity>
         </View>
       </View>
