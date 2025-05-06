@@ -64,7 +64,7 @@ export default function Settings ({ navigation, route }) {
 const styles = StyleSheet.create({
   safe: {
     flex: 1,
-    backgroundColor: '#2a1f1e'
+    backgroundColor: '#5C4649'
   },
   container: {
     padding: 20,
