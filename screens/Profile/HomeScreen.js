@@ -35,6 +35,10 @@ export default function HomeScreen ({ navigation, route }) {
     navigation.navigate('Menu')
   }
 
+  const openMatches = () => {
+    navigation.navigate('Matches', { selectedImage })
+  }
+
   return (
     <SafeAreaView style={styles.container}>
       <Image source={selectedImage} style={styles.bgImage} />
@@ -116,7 +120,7 @@ export default function HomeScreen ({ navigation, route }) {
             style={styles.navIcon}
           />
         </TouchableOpacity>
-        <TouchableOpacity>
+        <TouchableOpacity onPress={openMatches}>
           <Image
             source={require('../../assets/images/matches.png')}
             style={styles.navIcon}
