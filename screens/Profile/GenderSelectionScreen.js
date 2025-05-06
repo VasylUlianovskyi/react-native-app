@@ -72,7 +72,8 @@ export default function GenderSelectionScreen () {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: '#513838'
+    backgroundColor: '#513838',
+    paddingTop: 10
   },
   slide: {
     flex: 1,
@@ -115,7 +116,7 @@ const styles = StyleSheet.create({
     paddingVertical: 14,
     paddingHorizontal: 32,
     position: 'relative',
-    bottom: 40
+    bottom: '2%'
   },
   buttonText: {
     color: '#fff',

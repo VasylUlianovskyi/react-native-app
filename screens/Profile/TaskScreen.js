@@ -70,8 +70,11 @@ export default function TaskScreen ({ navigation }) {
           <Text style={styles.title}>High School</Text>
           <Text style={styles.subtitle}>PROGRESS</Text>
         </View>
-        <TouchableOpacity onPress={() => navigation.goBack()}>
-          <Text style={styles.closeIcon}>✕</Text>
+        <TouchableOpacity
+          style={styles.closeIcon}
+          onPress={() => navigation.goBack()}
+        >
+          <Text style={styles.closeIconText}>✕</Text>
         </TouchableOpacity>
       </View>
 
@@ -122,10 +125,12 @@ const styles = StyleSheet.create({
     fontSize: 12
   },
   closeIcon: {
-    fontSize: 22,
-    color: 'rgba(255, 255, 255, 0.6)',
     position: 'relative',
-    left: 190
+    left: '42%'
+  },
+  closeIconText: {
+    fontSize: 22,
+    color: 'rgba(255, 255, 255, 0.6)'
   },
   dayInfo: {
     display: 'flex',

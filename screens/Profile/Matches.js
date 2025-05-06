@@ -119,7 +119,7 @@ export default function Matches ({ navigation, route }) {
           require('../../assets/images/gallery/3.jpg')
         ]
       },
-      connected: false // false === 'disconnect', true ==='connect'
+      connected: true // false === 'disconnect', true ==='connect'
     })
   }
 

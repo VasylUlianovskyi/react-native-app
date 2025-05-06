@@ -315,7 +315,7 @@ const styles = StyleSheet.create({
     justifyContent: 'space-between'
   },
   photo: {
-    width: 115,
+    width: '30%',
     height: 80,
     borderRadius: 10
   }

@@ -181,18 +181,21 @@ const styles = StyleSheet.create({
     backgroundColor: '#FE653B',
     paddingHorizontal: 24,
     paddingVertical: 8,
-    borderRadius: 24
+    borderRadius: 24,
+    marginRight: 10
   },
   disconnectBtn: {
     backgroundColor: '#7F6D6D',
-    paddingHorizontal: 24,
+    paddingHorizontal: 15,
     paddingVertical: 8,
-    borderRadius: 24
+    borderRadius: 24,
+    marginRight: 10
   },
   connectText: {
     color: '#fff',
     fontSize: 16,
-    fontWeight: 600
+    fontWeight: 600,
+    textAlign: 'center'
   },
   disconnectText: {
     color: '#fff',
@@ -281,12 +284,13 @@ const styles = StyleSheet.create({
   mediaRow: {
     flexDirection: 'row',
     flexWrap: 'wrap',
+    justifyContent: 'center',
     gap: 8,
     marginTop: 8
   },
   mediaImage: {
-    width: 100,
-    height: 100,
+    width: 85,
+    height: 85,
     borderRadius: 8,
     marginRight: 8,
     marginBottom: 8

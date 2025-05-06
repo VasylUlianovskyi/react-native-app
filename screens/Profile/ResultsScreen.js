@@ -93,19 +93,20 @@ const styles = StyleSheet.create({
 
   card: {
     backgroundColor: '#80716F',
+
     borderRadius: 20,
     marginHorizontal: 24,
-    marginTop: -50,
-    padding: 24
+    marginVertical: '-15%',
+    padding: 20
   },
   progressContainer: {
     flexDirection: 'row',
     alignItems: 'center',
-    marginBottom: 24
+    marginBottom: 15
   },
   circle: {
-    width: 64,
-    height: 64,
+    width: 50,
+    height: 50,
     borderRadius: 32,
     borderWidth: 4,
     borderColor: '#fff',
@@ -135,7 +136,7 @@ const styles = StyleSheet.create({
     borderRadius: 16,
     borderColor: '#D7BFBF',
     borderWidth: 1,
-    paddingVertical: 34,
+    paddingVertical: 25,
     paddingHorizontal: 16,
     alignItems: 'center',
     marginBottom: 22

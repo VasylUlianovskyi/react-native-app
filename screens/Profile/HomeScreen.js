@@ -5,7 +5,8 @@ import {
   StyleSheet,
   Image,
   TouchableOpacity,
-  SafeAreaView
+  SafeAreaView,
+  useWindowDimensions
 } from 'react-native'
 import { BlurView } from 'expo-blur'
 import { LinearGradient } from 'expo-linear-gradient'
@@ -13,29 +14,23 @@ import CircularProgress from 'react-native-circular-progress-indicator'
 
 export default function HomeScreen ({ navigation, route }) {
   const { selectedImage } = route.params
+  const { height } = useWindowDimensions()
 
-  const handleTasks = () => {
-    navigation.navigate('TaskScreen')
-  }
-
-  const handleEdit = () => {
-    navigation.navigate('EditProfile')
-  }
-
-  const handleMyProfile = () => {
+  const handleTasks = () => navigation.navigate('TaskScreen')
+  const handleEdit = () => navigation.navigate('EditProfile')
+  const handleMyProfile = () =>
     navigation.navigate('MyProfile', { selectedImage })
-  }
-
-  const handleSettings = () => {
+  const handleSettings = () =>
     navigation.navigate('Settings', { selectedImage })
-  }
+  const openMenu = () => navigation.navigate('Menu')
+  const openMatches = () => navigation.navigate('Matches', { selectedImage })
 
-  const openMenu = () => {
-    navigation.navigate('Menu')
-  }
-
-  const openMatches = () => {
-    navigation.navigate('Matches', { selectedImage })
+  const dynamicStyles = {
+    profileInfo: {
+      marginHorizontal: 20,
+      marginTop: height * 0.4,
+      display: 'flex'
+    }
   }
 
   return (
@@ -65,7 +60,7 @@ export default function HomeScreen ({ navigation, route }) {
         </TouchableOpacity>
       </View>
 
-      <View style={styles.profileInfo}>
+      <View style={[styles.profileInfo, dynamicStyles.profileInfo]}>
         <Text style={styles.name}>Mike Turner</Text>
         <Text style={styles.position}>Junior Doctor</Text>
         <View style={styles.iconGroup}>
@@ -130,7 +125,7 @@ export default function HomeScreen ({ navigation, route }) {
           <Image
             source={require('../../assets/images/AI.png')}
             style={styles.aiText}
-          ></Image>
+          />
         </TouchableOpacity>
 
         <TouchableOpacity onPress={handleMyProfile}>
@@ -157,12 +152,10 @@ const styles = StyleSheet.create({
   },
   blurWrapper: {
     position: 'absolute',
-    bottom: 0,
     width: '100%',
     height: '100%',
     bottom: 60
   },
-
   blur: {
     flex: 1
   },
@@ -171,9 +164,6 @@ const styles = StyleSheet.create({
     width: '100%',
     height: '100%',
     resizeMode: 'cover'
-  },
-  gradientOverlay: {
-    ...StyleSheet.absoluteFillObject
   },
   topBar: {
     marginTop: 10,
@@ -193,7 +183,6 @@ const styles = StyleSheet.create({
   },
   profileInfo: {
     marginHorizontal: 20,
-    marginTop: 450,
     display: 'flex'
   },
   name: {
@@ -227,15 +216,14 @@ const styles = StyleSheet.create({
     tintColor: '#fff'
   },
   progressCard: {
-    backgroundColor: 'rgba(128, 113, 111, 0.8);',
+    backgroundColor: 'rgba(128, 113, 111, 0.8)',
     display: 'flex',
     flexDirection: 'row',
     gap: 10,
-    alignItems: 'center',
     borderRadius: 12,
     padding: 16,
-    marginTop: 30,
-    alignItems: 'start'
+    marginTop: '10%',
+    alignItems: 'flex-start'
   },
   progressTitle: {
     fontSize: 16,
@@ -248,10 +236,6 @@ const styles = StyleSheet.create({
   textWrapper: {
     flex: 1,
     justifyContent: 'center'
-  },
-  progressText: {
-    color: '#fff',
-    fontWeight: 'bold'
   },
   progressLabel: {
     fontSize: 12,
