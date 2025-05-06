@@ -16,6 +16,7 @@ import MyProfile from '../screens/Profile/MyProfile'
 import MyConnections from '../components/MyConnections'
 import MyGallery from '../screens/Profile/MyGallery'
 import PhotoViewer from '../components/PhotoViewer'
+import Settings from '../screens/Profile/Settings'
 
 const Stack = createStackNavigator()
 
@@ -43,6 +44,7 @@ export default function AppNavigator () {
         <Stack.Screen name='MyConnections' component={MyConnections} />
         <Stack.Screen name='MyGallery' component={MyGallery} />
         <Stack.Screen name='PhotoViewer' component={PhotoViewer} />
+        <Stack.Screen name='Settings' component={Settings} />
       </Stack.Navigator>
     </NavigationContainer>
   )

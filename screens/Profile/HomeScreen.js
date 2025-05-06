@@ -26,6 +26,11 @@ export default function HomeScreen ({ navigation, route }) {
   const handleMyProfile = () => {
     navigation.navigate('MyProfile', { selectedImage })
   }
+
+  const handleSettings = () => {
+    navigation.navigate('Settings', { selectedImage })
+  }
+
   return (
     <SafeAreaView style={styles.container}>
       <Image source={selectedImage} style={styles.bgImage} />
@@ -127,7 +132,7 @@ export default function HomeScreen ({ navigation, route }) {
             style={styles.navIcon}
           />
         </TouchableOpacity>
-        <TouchableOpacity>
+        <TouchableOpacity onPress={handleSettings}>
           <Image
             source={require('../../assets/images/setting.png')}
             style={styles.navIcon}
