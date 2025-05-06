@@ -16,12 +16,16 @@ export default function Settings ({ navigation, route }) {
     'I am junior heart surgeon in cardiac & thoracic department in Florida since August 2023'
   )
 
+  const openMenu = () => {
+    navigation.navigate('Menu')
+  }
+
   return (
     <SafeAreaView style={styles.safe}>
       <View style={styles.container}>
         <View style={styles.topRow}>
           <Image source={selectedImage} style={styles.topAvatar} />
-          <TouchableOpacity>
+          <TouchableOpacity onPress={openMenu}>
             <Image
               source={require('../../assets/images/menuIcon.png')}
               style={styles.menuIcon}

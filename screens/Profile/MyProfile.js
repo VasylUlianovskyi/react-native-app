@@ -34,12 +34,16 @@ export default function MyProfile ({ navigation, route }) {
     navigation.navigate('MyGallery')
   }
 
+  const openMenu = () => {
+    navigation.navigate('Menu')
+  }
+
   return (
     <SafeAreaView style={styles.safe}>
       <ScrollView contentContainerStyle={styles.container}>
         <View style={styles.header}>
           <Image source={selectedImage} style={styles.smallAvatar} />
-          <TouchableOpacity>
+          <TouchableOpacity onPress={openMenu}>
             <Ionicons name='menu' size={28} color='#fff' />
           </TouchableOpacity>
         </View>

@@ -31,6 +31,10 @@ export default function HomeScreen ({ navigation, route }) {
     navigation.navigate('Settings', { selectedImage })
   }
 
+  const openMenu = () => {
+    navigation.navigate('Menu')
+  }
+
   return (
     <SafeAreaView style={styles.container}>
       <Image source={selectedImage} style={styles.bgImage} />
@@ -50,7 +54,7 @@ export default function HomeScreen ({ navigation, route }) {
 
       <View style={styles.topBar}>
         <Image source={selectedImage} style={styles.avatar} />
-        <TouchableOpacity>
+        <TouchableOpacity onPress={openMenu}>
           <Image
             source={require('../../assets/images/menuIcon.png')}
             style={styles.menuIcon}
