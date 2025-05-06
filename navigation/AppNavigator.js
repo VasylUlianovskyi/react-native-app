@@ -19,6 +19,7 @@ import MyGallery from '../screens/Profile/MyGallery'
 import PhotoViewer from '../components/PhotoViewer'
 import Settings from '../screens/Profile/Settings'
 import Menu from '../components/Menu'
+import UserProfile from '../screens/Profile/UsersProfile'
 
 const Stack = createStackNavigator()
 
@@ -44,6 +45,7 @@ export default function AppNavigator () {
         <Stack.Screen name='EditProfile' component={EditProfile} />
         <Stack.Screen name='MyProfile' component={MyProfile} />
         <Stack.Screen name='Matches' component={Matches} />
+        <Stack.Screen name='UsersProfile' component={UserProfile} />
         <Stack.Screen name='MyConnections' component={MyConnections} />
         <Stack.Screen name='MyGallery' component={MyGallery} />
         <Stack.Screen name='PhotoViewer' component={PhotoViewer} />

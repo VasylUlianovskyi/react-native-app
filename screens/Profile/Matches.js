@@ -93,37 +93,65 @@ export default function Matches ({ navigation, route }) {
     navigation.navigate('Menu')
   }
 
-  const openMatches = () => {
-    navigation.navigate('Matches', { selectedImage })
+  const openUserProfile = () => {
+    navigation.navigate('UsersProfile', {
+      user: {
+        name: 'Gregory Ray',
+        role: 'Student in Collage',
+        avatar: require('../../assets/images/matches/1.jpg'),
+        about:
+          'I am product designer having 12 years of experience. I am creating memorable experience of web & mobile apps',
+        connections: [
+          {
+            name: 'David Smith',
+            role: 'Student in collage',
+            avatar: require('../../assets/images/matches/2.jpg')
+          },
+          {
+            name: 'Laura Dean',
+            role: 'Student in collage',
+            avatar: require('../../assets/images/matches/3.jpg')
+          }
+        ],
+        media: [
+          require('../../assets/images/gallery/1.jpg'),
+          require('../../assets/images/gallery/2.jpg'),
+          require('../../assets/images/gallery/3.jpg')
+        ]
+      },
+      connected: false // false === 'disconnect', true ==='connect'
+    })
   }
 
   const renderItem = ({ item }) => (
-    <View style={styles.itemContainer}>
-      <Image source={item.avatar} style={styles.avatar} />
-      <View style={{ flex: 1 }}>
-        <View style={styles.nameRow}>
-          <Text style={styles.name}>{item.name}</Text>
-          {item.status === 'new' && <Text style={styles.newBadge}>NEW</Text>}
+    <TouchableOpacity onPress={openUserProfile}>
+      <View style={styles.itemContainer}>
+        <Image source={item.avatar} style={styles.avatar} />
+        <View style={{ flex: 1 }}>
+          <View style={styles.nameRow}>
+            <Text style={styles.name}>{item.name}</Text>
+            {item.status === 'new' && <Text style={styles.newBadge}>NEW</Text>}
+          </View>
+          <Text style={styles.role}>{item.role}</Text>
         </View>
-        <Text style={styles.role}>{item.role}</Text>
+
+        {(item.status === 'connect' || item.status === 'new') && (
+          <TouchableOpacity style={styles.connectBtn}>
+            <Text style={styles.connectText}>Connect</Text>
+          </TouchableOpacity>
+        )}
+
+        {item.status === 'pending' && (
+          <Text style={styles.pendingText}>Pending</Text>
+        )}
+
+        {item.status === 'accept' && (
+          <TouchableOpacity style={styles.acceptBtn}>
+            <Text style={styles.acceptText}>Accept</Text>
+          </TouchableOpacity>
+        )}
       </View>
-
-      {(item.status === 'connect' || item.status === 'new') && (
-        <TouchableOpacity style={styles.connectBtn}>
-          <Text style={styles.connectText}>Connect</Text>
-        </TouchableOpacity>
-      )}
-
-      {item.status === 'pending' && (
-        <Text style={styles.pendingText}>Pending</Text>
-      )}
-
-      {item.status === 'accept' && (
-        <TouchableOpacity style={styles.acceptBtn}>
-          <Text style={styles.acceptText}>Accept</Text>
-        </TouchableOpacity>
-      )}
-    </View>
+    </TouchableOpacity>
   )
 
   return (
